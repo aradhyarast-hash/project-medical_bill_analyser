@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body text-ink antialiased;
+    background: linear-gradient(135deg, #fff1f8 0%, #f5f0ff 100%);
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #db2777, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .card {
+    @apply bg-white rounded-2xl border border-pink-200 shadow-sm;
+  }
+  /* Visible focus ring for keyboard users */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 rounded-lg;
+  }
+}
+
+/* Print styles for report download */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff !important; }
+  .card { box-shadow: none !important; border: 1px solid #e5e7eb !important; }
+}

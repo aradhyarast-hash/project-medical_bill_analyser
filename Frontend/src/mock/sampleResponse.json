@@ -1,0 +1,136 @@
+{
+  "items": [
+    {
+      "id": "item-1",
+      "extracted_name": "CROCIN ADVANCE 500MG",
+      "matched_name": "Paracetamol 500 mg",
+      "strength": "500 mg",
+      "form": "Tablet",
+      "quantity": 20,
+      "billed_unit_price": 3.5,
+      "mrp_unit_price": 3.0,
+      "ceiling_unit_price": 1.85,
+      "is_scheduled": true,
+      "status": "OVERCHARGED",
+      "overcharge_amount": 33.0,
+      "confidence": 0.91,
+      "generic": {
+        "name": "Paracetamol 500 mg",
+        "ingredient": "Paracetamol",
+        "strength": "500 mg",
+        "form": "Tablet",
+        "unit_price": 0.9,
+        "saving": 52.0,
+        "match_verified": true
+      }
+    },
+    {
+      "id": "item-2",
+      "extracted_name": "AZEE 500",
+      "matched_name": "Azithromycin 500 mg",
+      "strength": "500 mg",
+      "form": "Tablet",
+      "quantity": 5,
+      "billed_unit_price": 68.0,
+      "mrp_unit_price": 55.0,
+      "ceiling_unit_price": null,
+      "is_scheduled": true,
+      "status": "ABOVE_MRP",
+      "overcharge_amount": 65.0,
+      "confidence": 0.88,
+      "generic": {
+        "name": "Azithromycin 500 mg",
+        "ingredient": "Azithromycin",
+        "strength": "500 mg",
+        "form": "Tablet",
+        "unit_price": 12.5,
+        "saving": 277.5,
+        "match_verified": true
+      }
+    },
+    {
+      "id": "item-3",
+      "extracted_name": "METFORMIN 500MG SR",
+      "matched_name": "Metformin 500 mg",
+      "strength": "500 mg",
+      "form": "Tablet",
+      "quantity": 30,
+      "billed_unit_price": 2.1,
+      "mrp_unit_price": 2.5,
+      "ceiling_unit_price": 2.0,
+      "is_scheduled": false,
+      "status": "FAIR",
+      "overcharge_amount": 0,
+      "confidence": 0.95,
+      "generic": {
+        "name": "Metformin 500 mg",
+        "ingredient": "Metformin",
+        "strength": "500 mg",
+        "form": "Tablet",
+        "unit_price": 0.85,
+        "saving": 37.5,
+        "match_verified": true
+      }
+    },
+    {
+      "id": "item-4",
+      "extracted_name": "ESOMEPRAZOLE 40",
+      "matched_name": "Esomeprazole 40 mg",
+      "strength": "40 mg",
+      "form": "Capsule",
+      "quantity": 10,
+      "billed_unit_price": 15.0,
+      "mrp_unit_price": 14.0,
+      "ceiling_unit_price": 9.5,
+      "is_scheduled": true,
+      "status": "OVERCHARGED",
+      "overcharge_amount": 55.0,
+      "confidence": 0.82,
+      "generic": {
+        "name": "Omeprazole 20 mg",
+        "ingredient": "Omeprazole",
+        "strength": "20 mg",
+        "form": "Capsule",
+        "unit_price": 3.2,
+        "saving": 118.0,
+        "match_verified": false
+      }
+    },
+    {
+      "id": "item-5",
+      "extracted_name": "VITAMIN C TAB",
+      "matched_name": null,
+      "strength": "—",
+      "form": "Tablet",
+      "quantity": 15,
+      "billed_unit_price": 5.0,
+      "mrp_unit_price": null,
+      "ceiling_unit_price": null,
+      "is_scheduled": false,
+      "status": "NO_REFERENCE",
+      "overcharge_amount": 0,
+      "confidence": 0.68,
+      "generic": null
+    },
+    {
+      "id": "item-6",
+      "extracted_name": "RABITIN 20MG",
+      "matched_name": "Rabeprazole 20 mg",
+      "strength": "20 mg",
+      "form": "Tablet",
+      "quantity": 14,
+      "billed_unit_price": 8.5,
+      "mrp_unit_price": 8.0,
+      "ceiling_unit_price": 7.2,
+      "is_scheduled": false,
+      "status": "FAIR",
+      "overcharge_amount": 0,
+      "confidence": 0.93,
+      "generic": null
+    }
+  ],
+  "bill_meta": {
+    "pharmacy_name": "Wellness Pharmacy, Bengaluru",
+    "bill_date": "2026-10-08"
+  }
+}
