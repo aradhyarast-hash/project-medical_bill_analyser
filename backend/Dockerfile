@@ -9,6 +9,9 @@ WORKDIR /app
 # Copy all files from the backend directory
 COPY . .
 
+# Grant execute permission to the Maven wrapper script
+RUN chmod +x mvnw
+
 # Build executable JAR using Maven Wrapper
 RUN ./mvnw clean package -DskipTests
 
