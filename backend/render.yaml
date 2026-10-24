@@ -1,0 +1,20 @@
+﻿services:
+  - type: web
+    name: medical-bill-analyser-backend
+    runtime: java
+    plan: free
+    region: singapore
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/backend-0.0.1-SNAPSHOT.jar"
+    healthCheckPath: /api/health
+    envVars:
+      - key: DB_URL
+        value: "jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/medical_bill_analyser?useSSL=true&requireSSL=true&verifyServerCertificate=false&enabledTLSProtocols=TLSv1.2,TLSv1.3"
+      - key: DB_USERNAME
+        value: "2weXBiHk4y73iuj.root"
+      - key: DB_PASSWORD
+        value: "Td5TnzjU3cNdyKpQ"
+      - key: CORS_ORIGINS
+        value: "http://localhost:5173,https://your-frontend.onrender.com"
+      - key: JAVA_OPTS
+        value: "-Xmx400m -Xss512k"
