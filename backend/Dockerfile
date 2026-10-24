@@ -1,5 +1,5 @@
-# Use JDK 17 base image
-FROM eclipse-temurin:17-jdk-jammy
+# Use Java 21 JDK base image instead of 17
+FROM eclipse-temurin:21-jdk-jammy
 
 # Install Tesseract OCR native packages
 RUN apt-get update && apt-get install -y tesseract-ocr libtesseract-dev
