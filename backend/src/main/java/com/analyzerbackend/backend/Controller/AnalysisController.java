@@ -18,7 +18,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -107,11 +109,48 @@ public class AnalysisController {
         return ResponseEntity.ok(dtos);
     }
 
+    @PostMapping("/medicines/seed")
+    @Operation(summary = "Seed medicines from CSV file",
+               description = "Loads medicines from the data CSV file. Set clean=true to clear existing data before seeding.")
+    public ResponseEntity<Map<String, Object>> seedMedicines(
+            @RequestParam(value = "clean", defaultValue = "false") boolean clean
+    ) {
+        log.info("Received manual request to seed medicines (clean={})", clean);
+        int loaded = csvDataLoaderService.loadMedicines(clean);
+        Map<String, Object> result = new LinkedHashMap<>();
+        result.put("success", true);
+        result.put("rowsLoaded", loaded);
+        result.put("totalCount", csvDataLoaderService.getLoadedCount());
+        result.put("dataSource", csvDataLoaderService.getDataSource());
+        result.put("message", clean
+                ? "Cleaned database and seeded " + loaded + " medicines."
+                : "Seeded " + loaded + " medicines into database.");
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/medicines/seed/status")
+    @Operation(summary = "Get medicine seed status",
+               description = "Reports current loaded medicine count, load status, and resolved CSV file path.")
+    public ResponseEntity<Map<String, Object>> seedStatus() {
+        return ResponseEntity.ok(csvDataLoaderService.getStatus());
+    }
+
     @GetMapping("/health")
     @Operation(summary = "Health check", description = "Reports status, loaded medicine count, and OCR availability.")
     public ResponseEntity<HealthResponseDto> health() {
-        long count = csvDataLoaderService.getLoadedCount();
-        boolean ocrReady = ocrService.isOcrAvailable();
+        long count = 0;
+        try {
+            count = csvDataLoaderService.getLoadedCount();
+        } catch (Exception e) {
+            log.warn("Health check count query error: {}", e.getMessage());
+        }
+
+        boolean ocrReady = false;
+        try {
+            ocrReady = ocrService.isOcrAvailable();
+        } catch (Exception e) {
+            log.warn("Health check OCR query error: {}", e.getMessage());
+        }
 
         return ResponseEntity.ok(HealthResponseDto.builder()
                 .status("UP")

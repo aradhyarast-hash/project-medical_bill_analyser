@@ -1,4 +1,4 @@
-﻿services:
+services:
   - type: web
     name: medical-bill-analyser-backend
     runtime: java
@@ -9,7 +9,7 @@
     healthCheckPath: /api/health
     envVars:
       - key: DB_URL
-        value: "jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/medical_bill_analyser?useSSL=true&requireSSL=true&verifyServerCertificate=false&enabledTLSProtocols=TLSv1.2,TLSv1.3"
+        value: "jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/medical_bill_analyser?createDatabaseIfNotExist=true&useSSL=true&requireSSL=true&verifyServerCertificate=false&enabledTLSProtocols=TLSv1.2,TLSv1.3"
       - key: DB_USERNAME
         value: "2weXBiHk4y73iuj.root"
       - key: DB_PASSWORD
